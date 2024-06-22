@@ -1,0 +1,40 @@
+{
+  "trips": [
+    {
+      "destination": "Paris",
+      "duration": "7 days",
+      "activities": ["Sightseeing", "Museum Visits", "River Cruise"],
+      "cost": "$2000"
+    },
+    {
+      "destination": "Tokyo",
+      "duration": "10 days",
+      "activities": ["Temple Visits", "Shopping", "Sushi Tasting"],
+      "cost": "$3000"
+    },
+    {
+      "destination": "New York",
+      "duration": "5 days",
+      "activities": ["Broadway Shows", "Central Park", "Statue of Liberty"],
+      "cost": "$1500"
+    },
+    {
+      "destination": "Sydney",
+      "duration": "8 days",
+      "activities": ["Sydney Opera House", "Bondi Beach", "Harbour Bridge"],
+      "cost": "$2500"
+    },
+    {
+      "destination": "Rome",
+      "duration": "6 days",
+      "activities": ["Colosseum", "Vatican Museums", "Trevi Fountain"],
+      "cost": "$1800"
+    },
+    {
+      "destination": "Cape Town",
+      "duration": "7 days",
+      "activities": ["Table Mountain", "Cape Point", "Robben Island"],
+      "cost": "$2200"
+    }
+  ]
+}
