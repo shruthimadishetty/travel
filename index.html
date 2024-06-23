@@ -16,43 +16,42 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <!-- hero with navbar -->
-    <div class="hero_section">
-      <nav class="nav_container">
-        <div class="left_side">
-          <div class="logo_content">
-            <a href="" class="active">
-              <img src="./assets/logo-light.svg.png" alt="" />
-            </a>
+    <div class="hero-section">
+      <div class="navbar">
+        <div class="nav-logo-links">
+          <div class="nav-log">
+            <img src="./assets/logo-light.svg.png" alt="" />
           </div>
-          <div class="list_item">
+          <div class="nav-links">
             <a href="">Home</a>
             <a href="">Tour</a>
             <a href="">Destination</a>
-            <a href="">Activities</a>
-            <a href="">Pages</a>
-            <a href="">Contact</a>
+            <a href="">activities</a>
+            <a href="">pages</a>
+            <a href="">contact</a>
+            <div class="signup">
+              <button class="signUp_button">Sign Up</button>
+              <button class="login_button">Log In</button>
+            </div>
           </div>
         </div>
-        <div class="right_side">
-          <div class="nav-buttons">
-            <button class="signup_button">Signup</button>
-            <button class="login_button">Log in</button>
-          </div>
-
-          <div class="nav-burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-          </div>
+        <div class="signup">
+          <button class="signUp_button" onclick="showModal('login-modal')">Sign Up</button>
+          <button class="login_button" onclick="showModal('signup-modal')">Log In</button>
         </div>
-      </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+          <h2>≡</h2>
+        </div>
+      </div>
       <div class="hero_section_content">
-        <h1>Choose a Country For Your Next Adventure?</h1>
+        <h1>Choose a Country For Your <br />Next Adventure?</h1>
         <p>From local escapes to far-flung adventures</p>
         <button class="hero_button">
           <div class="button_content">
@@ -70,6 +69,102 @@
         </div>
       </div>
     </div>
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal-form">
+      <div class="modal-content-form">
+        <span class="close-form" onclick="closeModal('login-modal')">&times;</span>
+        <div class="login_container">
+          <form action="#" id="login-form" class="login-form">
+            <h2>Login</h2>
+            <div class="input-container">
+              <i class="far fa-envelope"></i>
+              <input type="email" placeholder="Enter Your email" required />
+            </div>
+            <div class="input-container">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="confirm_password"
+                placeholder="Confirm a Password"
+                required
+              />
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="input-container-checkbox">
+              <div class="checkbox">
+                <input type="checkbox" id="remember_me"/>
+                <label for="remember_me">Remember me</label>
+              </div>
+              <div>
+                <a href="#">Forgot Password?</a>
+              </div>
+            </div>
+            <div class="button_loginNow">
+              <button type="submit">Login Now</button>
+              <p>
+                Don't have an account?
+                <a href="#" onclick="switchModal('login-modal', 'signup-modal')"
+                  >Signup now</a
+                >
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal-form">
+      <div class="modal-content_signUp">
+        <span class="close-form" onclick="closeModal('signup-modal')">&times;</span>
+        <div class="signUp_container">
+          <form action="#" id="signup-form" class="register-form">
+            <h2>Registration</h2>
+            <div class="input-container">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Enter Your name" required />
+            </div>
+            <div class="input-container">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Enter Your email" required />
+            </div>
+            <div class="input-container">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="confirm_password"
+                placeholder="Confirm a password"
+                required
+              />
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="input-container-checkbox">
+              <input type="checkbox" id="remember_me"/>
+              <label for="remember_me">I accept all terms & conditions</label>
+            </div>
+            <div class="button_register_now">
+              <button type="submit">Register Now</button>
+              <p>
+                Already have an account?
+                <a href="#" onclick="switchModal('signup-modal', 'login-modal')"
+                  >Login now</a
+                >
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <!-- section with card item -->
     <div class="section_card_item">
       <h2>Best of <span>New York</span></h2>
@@ -219,7 +314,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- fetching the data from json data -->
     <div class="fetch_data_container" id="travel-details">
       <!-- Travel details will be displayed here -->
@@ -227,117 +322,116 @@
 
     <!-- text_content with card_items-->
     <div class="text_content_container">
-    <div class="left_side_content">
-      <h3>Popular things to do</h3>
-      <p>
-        There are many variations of passages of Lorem Ipsum<br />
+      <div class="left_side_content">
+        <h3>Popular things to do</h3>
+        <p>
+          There are many variations of passages of Lorem Ipsum<br />
           available, but the majority have suffered alteration in some<br />
           form.
-      </p>
-      <button id="openBookingForm" class="btnTicket">Ticket Booking</button>
+        </p>
+        <button id="openBookingForm" class="btnTicket">Ticket Booking</button>
+      </div>
+      <div class="right_side_cards">
+        <div class="text_content_card">
+          <button><img src="./assets/svg_1.png" alt="" /></button>
+          <h5>City Tours</h5>
+          <p>100+ Tours</p>
+        </div>
+        <div class="text_content_card">
+          <button><img src="./assets/svg_2.png" alt="" /></button>
+          <h5>City Tours</h5>
+          <p>100+ Tours</p>
+        </div>
+        <div class="text_content_card">
+          <button><img src="./assets/svg_3.png" alt="" /></button>
+          <h5>City Tours</h5>
+          <p>100+ Tours</p>
+        </div>
+        <div class="text_content_card">
+          <button><img src="./assets/svg_4.png" alt="" /></button>
+          <h5>City Tours</h5>
+          <p>100+ Tours</p>
+        </div>
+        <div class="text_content_card">
+          <button><img src="./assets/svg_5.png" alt="" /></button>
+          <h5>City Tours</h5>
+          <p>100+ Tours</p>
+        </div>
+        <div class="text_content_card">
+          <button><img src="./assets/svg_6.png" alt="" /></button>
+          <h5>City Tours</h5>
+          <p>100+ Tours</p>
+        </div>
+      </div>
     </div>
-    <div class="right_side_cards">
-      <div class="text_content_card">
-        <button><img src="./assets/svg_1.png" alt="" /></button>
-        <h5>City Tours</h5>
-        <p>100+ Tours</p>
-      </div>
-      <div class="text_content_card">
-        <button><img src="./assets/svg_2.png" alt="" /></button>
-        <h5>City Tours</h5>
-        <p>100+ Tours</p>
-      </div>
-      <div class="text_content_card">
-        <button><img src="./assets/svg_3.png" alt="" /></button>
-        <h5>City Tours</h5>
-        <p>100+ Tours</p>
-      </div>
-      <div class="text_content_card">
-        <button><img src="./assets/svg_4.png" alt="" /></button>
-        <h5>City Tours</h5>
-        <p>100+ Tours</p>
-      </div>
-      <div class="text_content_card">
-        <button><img src="./assets/svg_5.png" alt="" /></button>
-        <h5>City Tours</h5>
-        <p>100+ Tours</p>
-      </div>
-      <div class="text_content_card">
-        <button><img src="./assets/svg_6.png" alt="" /></button>
-        <h5>City Tours</h5>
-        <p>100+ Tours</p>
-      </div>
-    </div>
-  </div>
 
-  
-  <!-- Booking Form Modal -->
-  <div id="bookingFormModal" class="modal hidden">
-    <div class="modalContent">
-      <span class="closeButton" id="closeModal">&times;</span>
-      <h3>Ticket Booking Form</h3>
-      <form id="bookingForm">
-        <div class="formGroup">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
+    <!-- Booking Form Modal -->
+    <div id="bookingFormModal" class="modal hidden">
+      <div class="modalContent">
+        <span class="closeButton" id="closeModal">&times;</span>
+        <h3>Ticket Booking Form</h3>
+        <form id="bookingForm">
+          <div class="formGroup">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="formGroup">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="formGroup">
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required />
+          </div>
+          <div class="formGroup">
+            <label for="date">Date of Travel:</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div class="formGroup">
+            <label for="tickets">Number of Tickets:</label>
+            <input type="number" id="tickets" name="tickets" min="1" required />
+          </div>
+          <button type="submit" class="btnTicket">Book Now</button>
+        </form>
+        <div id="confirmationMessage" class="hidden">
+          <h2>Successfully booked the ticket!</h2>
+          <p id="bookingDetails"></p>
         </div>
-        <div class="formGroup">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="formGroup">
-          <label for="destination">Destination:</label>
-          <input type="text" id="destination" name="destination" required>
-        </div>
-        <div class="formGroup">
-          <label for="date">Date of Travel:</label>
-          <input type="date" id="date" name="date" required>
-        </div>
-        <div class="formGroup">
-          <label for="tickets">Number of Tickets:</label>
-          <input type="number" id="tickets" name="tickets" min="1" required>
-        </div>
-        <button type="submit" class="btnTicket">Book Now</button>
-      </form>
-      <div id="confirmationMessage" class="hidden">
-        <h2>Successfully booked the ticket!</h2>
-        <p id="bookingDetails"></p>
       </div>
     </div>
-  </div>
 
     <!-- trending cards info -->
     <div class="container">
       <div class="heading">
-          <h1>Trending Destinations</h1>
-          <button id="seeAllButton" class="button_images">Next</button>
+        <h1>Trending Destinations</h1>
+        <button id="seeAllButton" class="button_images">Next</button>
       </div>
       <div class="trending-destinations">
-          <div class="destination">
-              <img src="./assets/trending_image_1.png" alt="Beach Tours">
-              <p>Beach Tours</p>
-          </div>
-          <div class="destination">
-              <img src="./assets/trending_image_2.png" alt="City Tours">
-              <p>City Tours</p>
-          </div>
-          <div class="destination">
-              <img src="./assets/trending_image_3.png" alt="Museum Tour">
-              <p>Museum Tour</p>
-          </div>
-          <div class="destination">
-              <img src="./assets/trending_image_4.png" alt="Food">
-              <p>Food</p>
-          </div>
-          <div class="destination">
-              <img src="./assets/trending_image_5.png" alt="Hiking">
-              <p>Hiking</p>
-          </div>
+        <div class="destination">
+          <img src="./assets/trending_image_1.png" alt="Beach Tours" />
+          <p>Beach Tours</p>
+        </div>
+        <div class="destination">
+          <img src="./assets/trending_image_2.png" alt="City Tours" />
+          <p>City Tours</p>
+        </div>
+        <div class="destination">
+          <img src="./assets/trending_image_3.png" alt="Museum Tour" />
+          <p>Museum Tour</p>
+        </div>
+        <div class="destination">
+          <img src="./assets/trending_image_4.png" alt="Food" />
+          <p>Food</p>
+        </div>
+        <div class="destination">
+          <img src="./assets/trending_image_5.png" alt="Hiking" />
+          <p>Hiking</p>
+        </div>
       </div>
-  </div>
-  <div id="moreImagesContainer" class="more-images-container">
-    <!-- for more images -->
-  </div>
+    </div>
+    <div id="moreImagesContainer" class="more-images-container">
+      <!-- for more images -->
+    </div>
 
     <!-- icon with text -->
     <div class="icon_container">

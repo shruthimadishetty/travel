@@ -1,14 +1,41 @@
-const burger = document.querySelector(".nav-burger");
+function toggleMenu() {
+  const nav = document.querySelector(".nav-links");
+  const hamburger = document.querySelector(".hamburger h2");
+  const isVisible = nav.style.display === "flex";
 
-burger.addEventListener("click", () => {
-  const navLinks = document.querySelector(".list_item");
-  const navButtons = document.querySelector(".nav-buttons");
+  if (isVisible) {
+    nav.style.display = "none";
+    hamburger.innerText = "☰";
+  } else {
+    nav.style.display = "flex";
+    hamburger.innerText = "X";
+    hamburger.style.fontSize = "30px";
+  }
+ }
 
-  navLinks.classList.toggle("active");
-  navButtons.classList.toggle("active");
+ function showModal(modalId) {
+  document.getElementById(modalId).style.display = "block";
+}
 
-  burger.classList.toggle("toggle");
-});
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = "none";
+}
+
+function switchModal(currentModalId, targetModalId) {
+  closeModal(currentModalId);
+  showModal(targetModalId);
+}
+window.onclick = function (event) {
+  const loginModal = document.getElementById("login-modal");
+  const signupModal = document.getElementById("signup-modal");
+
+  if (event.target == loginModal) {
+    closeModal("login-modal");
+  } else if (event.target == signupModal) {
+    closeModal("signup-modal");
+  }
+};
+ 
 // image popup
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -97,40 +124,36 @@ let imagesToShow = [
     src: "./assets/trending_image_3.png",
     description: "City Tours",
   },
-  { 
-    src: "./assets/trending_image_1.png", 
-    description: "Cruises" 
+  {
+    src: "./assets/trending_image_1.png",
+    description: "Cruises",
   },
-  { 
-    src: "./assets/trending_image_2.png", 
-    description: "Beach Tours" 
+  {
+    src: "./assets/trending_image_2.png",
+    description: "Beach Tours",
   },
-  { 
-    src: "./assets/trending_image_5.png", 
-    description: "Hiking" 
+  {
+    src: "./assets/trending_image_5.png",
+    description: "Hiking",
   },
-  { src: "./assets/trending_image_4.png", 
-    description: "Food" 
+  { src: "./assets/trending_image_4.png", description: "Food" },
+  {
+    src: "./assets/trending_image_2.png",
+    description: "Beach Tours",
   },
-  { 
-    src: "./assets/trending_image_2.png", 
-    description: "Beach Tours" 
+  {
+    src: "./assets/trending_image_5.png",
+    description: "Hiking",
   },
-  { 
-    src: "./assets/trending_image_5.png", 
-    description: "Hiking" 
-  },
-  { src: "./assets/trending_image_4.png", 
-    description: "Food" 
-  },
+  { src: "./assets/trending_image_4.png", description: "Food" },
   {
     src: "./assets/trending_image_3.png",
     description: "City Tours",
   },
-  { 
-    src: "./assets/trending_image_1.png", 
-    description: "Cruises" 
-  }
+  {
+    src: "./assets/trending_image_1.png",
+    description: "Cruises",
+  },
 ];
 
 let currentIndex = 0;
@@ -162,72 +185,76 @@ document.getElementById("seeAllButton").addEventListener("click", () => {
 
 async function fetchTravelDetails() {
   try {
-    const response = await fetch('data.json');
+    const response = await fetch("data.json");
     if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
+      throw new Error("Network response was not ok " + response.statusText);
     }
     const travelData = await response.json();
     displayTravelDetails(travelData);
   } catch (error) {
-    console.error('There has been a problem with your fetch operation:', error);
+    console.error("There has been a problem with your fetch operation:", error);
   }
 }
 
 function displayTravelDetails(data) {
-  const container = document.getElementById('travel-details');
-  data.trips.forEach(trip => {
-    const card = document.createElement('div');
-    card.classList.add('cards');
-    
-    const cardContent = document.createElement('div');
-    cardContent.classList.add('card-content');
-    
-    const destination = document.createElement('h2');
+  const container = document.getElementById("travel-details");
+  data.trips.forEach((trip) => {
+    const card = document.createElement("div");
+    card.classList.add("cards");
+
+    const cardContent = document.createElement("div");
+    cardContent.classList.add("card-content");
+
+    const destination = document.createElement("h2");
     destination.textContent = trip.destination;
     cardContent.appendChild(destination);
-    
-    const duration = document.createElement('p');
+
+    const duration = document.createElement("p");
     duration.textContent = `Duration: ${trip.duration}`;
     cardContent.appendChild(duration);
-    
-    const activities = document.createElement('p');
-    activities.textContent = `Activities: ${trip.activities.join(', ')}`;
+
+    const activities = document.createElement("p");
+    activities.textContent = `Activities: ${trip.activities.join(", ")}`;
     cardContent.appendChild(activities);
-    
-    const cost = document.createElement('p');
+
+    const cost = document.createElement("p");
     cost.textContent = `Cost: ${trip.cost}`;
     cardContent.appendChild(cost);
-    
+
     card.appendChild(cardContent);
     container.appendChild(card);
   });
 }
 
-document.addEventListener('DOMContentLoaded', fetchTravelDetails);
+document.addEventListener("DOMContentLoaded", fetchTravelDetails);
 
 //ticket booking
 
-document.querySelector('#openBookingForm').addEventListener('click', function() {
-  console.log("hello")
-  document.getElementById('bookingFormModal').classList.remove('hidden');
+document
+  .querySelector("#openBookingForm")
+  .addEventListener("click", function () {
+    console.log("hello");
+    document.getElementById("bookingFormModal").classList.remove("hidden");
+  });
+
+document.getElementById("closeModal").addEventListener("click", function () {
+  document.getElementById("bookingFormModal").classList.add("hidden");
+  document.getElementById("confirmationMessage").classList.add("hidden");
+  document.getElementById("bookingForm").reset();
 });
 
-document.getElementById('closeModal').addEventListener('click', function() {
-  document.getElementById('bookingFormModal').classList.add('hidden');
-  document.getElementById('confirmationMessage').classList.add('hidden');
-  document.getElementById('bookingForm').reset();
-});
+document
+  .getElementById("bookingForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
-document.getElementById('bookingForm').addEventListener('submit', function(event) {
-  event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const destination = document.getElementById("destination").value;
+    const date = document.getElementById("date").value;
+    const tickets = document.getElementById("tickets").value;
 
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const destination = document.getElementById('destination').value;
-  const date = document.getElementById('date').value;
-  const tickets = document.getElementById('tickets').value;
-
-  const bookingDetails = `
+    const bookingDetails = `
     <strong>Name:</strong> ${name}<br>
     <strong>Email:</strong> ${email}<br>
     <strong>Destination:</strong> ${destination}<br>
@@ -235,8 +262,7 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
     <strong>Number of Tickets:</strong> ${tickets}
   `;
 
-  document.getElementById('bookingDetails').innerHTML = bookingDetails;
-  document.getElementById('confirmationMessage').classList.remove('hidden');
-  alert('Successfully booked the ticket!');
-});
-
+    document.getElementById("bookingDetails").innerHTML = bookingDetails;
+    document.getElementById("confirmationMessage").classList.remove("hidden");
+    alert("Successfully booked the ticket!");
+  });
