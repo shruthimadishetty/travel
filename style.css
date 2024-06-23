@@ -278,6 +278,13 @@
     line-height: 39px;
   }
 }
+@media (max-width: 400px) {
+  .nav-links a {
+      font-size: 14px;
+      line-height: 20px;
+  }
+}
+
 
 /* Modal Styles */
 .modal-form {
@@ -1237,6 +1244,8 @@ transform: scale(1.05);
   .review_info {
     justify-content: center;
     align-items: center;
+    padding: 20px;
+
   }
 }
 
@@ -1538,7 +1547,7 @@ input::placeholder {
     gap: 52px;
   }
   .footer_upperPart{
-    padding: 62px 95px;
+    padding: 70px 95px;
   }
 }
 @media (max-width: 996px) {
@@ -1599,7 +1608,7 @@ input::placeholder {
 }
 @media (max-width: 1399px) {
   .traveler_cards_items {
-    width: 365px;
+    width: 374px;
   }
 }
 @media (max-width: 900px) {
