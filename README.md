@@ -1,3 +1,11 @@
+Introduction
+This documentation covers the implementation of a travel landing page using HTML, CSS, and JavaScript. The page includes a hero section with a navbar, modals for login and signup, a section showcasing popular destinations, a ticket booking form, and other promotional content.
+
+Technologies Used
+HTML: For structuring the web page.
+CSS: For styling the web page.
+JavaScript: For adding interactivity and dynamic content.
+
 Menu Toggle
 The toggleMenu function handles the visibility of a navigation menu and changes the text and style of a hamburger icon.
 
