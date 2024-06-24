@@ -634,7 +634,7 @@ input[type=checkbox] {
   gap: 80px;
   border-radius: 10px;
   transform: rotate(5deg);
-  transition: all transform 0.2s;
+  transition: all transform 0.4s ease-in-out;
 }
 .image_contianer_1:hover {
   transform: scale(1.05);
@@ -688,7 +688,7 @@ input[type=checkbox] {
   gap: 80px;
   border-radius: 10px;
   transform: rotate(5deg);
-  transition: all transform 0.2s;
+  transition: all transform 0.4s ease-in-out;
 }
 .image_contianer_2:hover {
   transform: scale(1.05);
@@ -706,7 +706,7 @@ input[type=checkbox] {
   gap: 80px;
   border-radius: 10px;
   transform: rotate(5deg);
-  transition: all transform 0.2s;
+  transition: all transform 0.4s ease-in-out;
 }
 .image_contianer_3:hover {
   transform: scale(1.05);
@@ -755,12 +755,27 @@ input[type=checkbox] {
   }
   .image_contianer_3 {
     gap: 20px;
+    transition: none;
+    transform: none;
   }
   .image_contianer_2 {
     gap: 20px;
+    transition: none;
+    transform: none;
   }
   .image_contianer_1 {
     gap: 20px;
+    transition: none;
+    transform: none;
+  }
+  .image_container_1:hover{
+    transition: none;
+  }
+  .image_contianer_2:hover{
+    transition: none;
+  }
+  .image_container_3:hover{
+    transition: none;
   }
   .image_button_content button {
     width: 150px;
@@ -890,6 +905,7 @@ transform: scale(1.05);
 
 #confirmationMessage {
   margin-top: 20px;
+  font-size: 15px;
 }
 
 @media (max-width: 950px) {
@@ -906,6 +922,14 @@ transform: scale(1.05);
     width: 100%;
     gap: 20px;
   }
+  .text_content_card{
+    transform: none;
+    transition: none;
+  }
+  /* .traveler_cards:hover{
+    transform: none;
+    transition: none;
+  } */
 }
 /* fetching the data from json data */
 .fetch_data_container {
@@ -1027,6 +1051,7 @@ transform: scale(1.05);
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+    gap: 35px;
   }
 }
 /* image container */
@@ -1588,7 +1613,11 @@ input::placeholder {
   }
   .footer_lowerPart {
     justify-content: flex-start;
-    gap: 62px;
+    gap: 40px;
+  }
+  .footer_upperPart{
+    padding: 90px 100px;
+    gap: 30px;
   }
 }
 @media (max-width: 2000px) {

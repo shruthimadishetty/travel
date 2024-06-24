@@ -27,7 +27,7 @@ function switchModal(currentModalId, targetModalId) {
 }
 window.onclick = function (event) {
   const loginModal = document.getElementById("login-modal");
-  const signupModal = document.getElementById("signup-modal");
+  const upModal = document.getElementById("signup-modal");
 
   if (event.target == loginModal) {
     closeModal("login-modal");
