@@ -241,6 +241,7 @@ document.getElementById("closeModal").addEventListener("click", function () {
   document.getElementById("bookingFormModal").classList.add("hidden");
   document.getElementById("confirmationMessage").classList.add("hidden");
   document.getElementById("bookingForm").reset();
+  
 });
 
 document

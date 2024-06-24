@@ -226,17 +226,20 @@
   font-size: 12px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1050px) {
   .nav-links {
-    margin-top: 10vh;
+    margin-top: 40vh;
     display: none;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     position: absolute;
+    gap:20px;
     padding-top: 40vh;
     width: 180%;
-    height: 80vh;
-    background: rgba(255, 255, 255, 0.2);
+    height: 100vh;
+    background: black;
+    z-index: 1;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -752,6 +755,7 @@ input[type=checkbox] {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding: 25px 70px;
   }
   .image_contianer_3 {
     gap: 20px;
@@ -779,6 +783,15 @@ input[type=checkbox] {
   }
   .image_button_content button {
     width: 150px;
+  }
+  .image_content h3{
+    line-height: 27px;
+  }
+  .image_content p {
+    line-height: 19px;
+  }
+  .image_content {
+    gap: 10px;
   }
 }
 /* text_content with card_items */
