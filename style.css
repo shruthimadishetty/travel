@@ -1670,4 +1670,7 @@ input::placeholder {
   .footer_part_1{
     margin-top: 109px;
   }
+  .send_button_container{
+    display: flex;
+  }
 }
