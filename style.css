@@ -1629,8 +1629,10 @@ input::placeholder {
     gap: 40px;
   }
   .footer_upperPart{
-    padding: 90px 100px;
-    gap: 30px;
+    padding: 30px 100px;
+    gap: 11px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 @media (max-width: 2000px) {
@@ -1664,5 +1666,8 @@ input::placeholder {
   .article_container {
     justify-content: center;
     align-items: center;
+  }
+  .footer_part_1{
+    margin-top: 109px;
   }
 }
