@@ -636,8 +636,8 @@ input[type=checkbox] {
   align-items: flex-start;
   gap: 80px;
   border-radius: 10px;
-  transform: rotate(5deg);
-  transition: all transform 0.4s ease-in-out;
+  /* transform: rotate(5deg); */
+  transition: transform 0.5s ease-in;
 }
 .image_contianer_1:hover {
   transform: scale(1.05);
@@ -690,8 +690,8 @@ input[type=checkbox] {
   align-items: flex-start;
   gap: 80px;
   border-radius: 10px;
-  transform: rotate(5deg);
-  transition: all transform 0.4s ease-in-out;
+  /* transform: rotate(5deg); */
+  transition: transform 0.5s ease-in;
 }
 .image_contianer_2:hover {
   transform: scale(1.05);
@@ -708,8 +708,8 @@ input[type=checkbox] {
   align-items: flex-start;
   gap: 80px;
   border-radius: 10px;
-  transform: rotate(5deg);
-  transition: all transform 0.4s ease-in-out;
+  /* transform: rotate(5deg); */
+  transition: transform 0.5s ease-in;
 }
 .image_contianer_3:hover {
   transform: scale(1.05);
@@ -837,8 +837,8 @@ text-align: left;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  transform: rotate(-30deg);
-  transition: all transform 0.2s ease-in-out;
+  /* transform: rotate(-30deg); */
+  transition: transform 0.2s ease-in-out;
 }
 .text_content_card:hover{
 transform: scale(1.05);
